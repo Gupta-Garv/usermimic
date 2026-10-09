@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Logo } from './Logo'
-import { ArrowRight, Menu, X, Terminal } from 'lucide-react'
+import { ArrowRight, Menu, X, Terminal, Lock, Mail } from 'lucide-react'
 
 export type TabId = 'home' | 'personas' | 'engine' | 'simulator' | 'pricing'
 
@@ -77,6 +77,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Right Action CTA (Desktop) */}
         <div className="pointer-events-auto hidden md:flex items-center gap-3">
+          <a
+            href="mailto:garv@usermimic.tech"
+            className="hidden lg:flex items-center gap-1.5 bg-black/60 hover:bg-black/90 border border-white/10 text-gray-300 hover:text-primary text-xs font-mono px-3.5 py-2 rounded-full transition-all"
+          >
+            <Mail className="w-3.5 h-3.5 text-[#d89c56]" />
+            <span>garv@usermimic.tech</span>
+          </a>
+
           <button
             onClick={() => onSelectTab('simulator')}
             className="flex items-center gap-2 bg-[#121214] hover:bg-[#1a1a1f] border border-white/10 text-[#E1E0CC] text-xs font-medium px-3.5 py-2 rounded-full transition-all"
@@ -89,7 +97,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={onOpenDemo}
             className="group flex items-center gap-2 bg-primary hover:bg-[#eae8d8] text-black text-xs font-semibold pl-4 pr-1.5 py-1.5 rounded-full transition-all shadow-lg hover:shadow-primary/20"
           >
-            <span>Launch Console</span>
+            <Lock className="w-3.5 h-3.5" />
+            <span>Enterprise Console</span>
             <span className="bg-black text-[#E1E0CC] rounded-full w-6 h-6 flex items-center justify-center transition-transform group-hover:scale-110">
               <ArrowRight className="w-3.5 h-3.5" />
             </span>
@@ -155,11 +164,19 @@ export const Navbar: React.FC<NavbarProps> = ({
                   setMobileOpen(false)
                   onOpenDemo()
                 }}
-                className="w-full flex items-center justify-center gap-2 bg-primary text-black font-semibold text-xs py-3 rounded-xl"
+                className="w-full flex items-center justify-center gap-2 bg-primary text-black font-semibold text-xs py-3 rounded-xl shadow-lg"
               >
-                <span>Launch Console</span>
-                <ArrowRight className="w-4 h-4" />
+                <Lock className="w-4 h-4" />
+                <span>Enterprise Console Access</span>
               </button>
+
+              <a
+                href="mailto:garv@usermimic.tech"
+                className="w-full flex items-center justify-center gap-2 text-gray-400 hover:text-primary text-xs font-mono py-2"
+              >
+                <Mail className="w-3.5 h-3.5 text-[#d89c56]" />
+                <span>garv@usermimic.tech</span>
+              </a>
             </div>
           </motion.div>
         )}

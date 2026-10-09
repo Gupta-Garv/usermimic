@@ -6,13 +6,19 @@ import { PersonasPage } from './components/PersonasPage'
 import { VisionEnginePage } from './components/VisionEnginePage'
 import { SimulatorPage } from './components/SimulatorPage'
 import { PricingPage } from './components/PricingPage'
-import { DemoModal } from './components/DemoModal'
+import { ConsoleLockModal } from './components/ConsoleLockModal'
+import { PlanCheckoutModal } from './components/PlanCheckoutModal'
+import { LegalModal, LegalDocType } from './components/LegalModal'
+import { ComplianceTrustBar } from './components/ComplianceTrustBar'
 import { AsciiFluid } from './components/ui/ascii-fluid'
 import BeamWordmarkFooter from './components/ui/beam-wordmark-footer'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabId>('home')
-  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false)
+  const [isConsoleLockOpen, setIsConsoleLockOpen] = useState(false)
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
+  const [selectedPlan, setSelectedPlan] = useState('Growth')
+  const [legalDoc, setLegalDoc] = useState<LegalDocType | null>(null)
 
   // Sync tab with URL hash
   useEffect(() => {
@@ -34,6 +40,12 @@ export default function App() {
   }
 
   const handleFooterLinkClick = (label: string, href?: string) => {
+    if (href?.startsWith('#legal-')) {
+      const doc = href.replace('#legal-', '') as LegalDocType
+      setLegalDoc(doc)
+      return
+    }
+
     if (href?.startsWith('#')) {
       const target = href.replace('#', '') as TabId
       if (['home', 'personas', 'engine', 'simulator', 'pricing'].includes(target)) {
@@ -42,18 +54,26 @@ export default function App() {
         return
       }
     }
-    if (label.toLowerCase().includes('demo') || label.toLowerCase().includes('console')) {
-      setIsDemoModalOpen(true)
+
+    const lower = label.toLowerCase()
+    if (lower.includes('terms')) {
+      setLegalDoc('terms')
+    } else if (lower.includes('privacy') || lower.includes('gdpr') || lower.includes('dpa')) {
+      setLegalDoc('privacy')
+    } else if (lower.includes('soc') || lower.includes('security') || lower.includes('whitepaper')) {
+      setLegalDoc('security')
+    } else if (lower.includes('console') || lower.includes('beta') || lower.includes('demo') || lower.includes('vpc')) {
+      setIsConsoleLockOpen(true)
     }
   }
 
   return (
     <div className="bg-black text-[#E1E0CC] min-h-screen selection:bg-primary selection:text-black flex flex-col justify-between">
-      {/* Floating Top Navbar */}
+      {/* Floating Top Navbar with Lock Icon & Direct Email */}
       <Navbar
         activeTab={activeTab}
         onSelectTab={handleSelectTab}
-        onOpenDemo={() => setIsDemoModalOpen(true)}
+        onOpenDemo={() => setIsConsoleLockOpen(true)}
       />
 
       {/* Main Body */}
@@ -61,7 +81,7 @@ export default function App() {
         {/* HERO SECTION (Rendered on Home Overview) */}
         {activeTab === 'home' && (
           <Hero
-            onStartSimulation={() => setIsDemoModalOpen(true)}
+            onStartSimulation={() => setIsConsoleLockOpen(true)}
             onExplorePersonas={() => {
               handleSelectTab('personas')
               window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -93,7 +113,12 @@ export default function App() {
                 <PersonasPage onLaunchSimulator={() => handleSelectTab('simulator')} />
                 <VisionEnginePage />
                 <SimulatorPage />
-                <PricingPage onSelectPlan={() => setIsDemoModalOpen(true)} />
+                <PricingPage
+                  onSelectPlan={(plan) => {
+                    setSelectedPlan(plan)
+                    setIsCheckoutOpen(true)
+                  }}
+                />
               </>
             )}
 
@@ -106,13 +131,21 @@ export default function App() {
             {activeTab === 'simulator' && <SimulatorPage />}
 
             {activeTab === 'pricing' && (
-              <PricingPage onSelectPlan={() => setIsDemoModalOpen(true)} />
+              <PricingPage
+                onSelectPlan={(plan) => {
+                  setSelectedPlan(plan)
+                  setIsCheckoutOpen(true)
+                }}
+              />
             )}
           </div>
         </div>
+
+        {/* ENTERPRISE COMPLIANCE, SOC 2, ISO, HIPAA & AWARDS BAR */}
+        <ComplianceTrustBar onOpenLegal={(doc) => setLegalDoc(doc)} />
       </main>
 
-      {/* BEAM WORDMARK FOOTER (Warm Golden Amber & Cream Palette Matching Hero) */}
+      {/* BEAM WORDMARK FOOTER (Warm Golden Amber & Cream Palette) */}
       <BeamWordmarkFooter
         brand="UserMimic"
         wordmark="UserMimic"
@@ -125,36 +158,84 @@ export default function App() {
         wordTop="#c89656"
         wordFoot="#16120b"
         cut={0.14}
+        socials={[
+          { label: "Crunchbase", href: "https://www.crunchbase.com/organization/usermimic", icon: "github" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/company/usermimic", icon: "linkedin" },
+          { label: "X (Twitter)", href: "https://x.com", icon: "x" },
+        ]}
+        credits={[
+          {
+            lead: "© 2024–2026 UserMimic, Inc. All rights reserved. UserMimic™, the optical reticle emblem, and Vision Swarm™ are registered trademarks or trademarks of UserMimic, Inc.",
+            label: "",
+          },
+          {
+            lead: "SOC 2 Type II In-Audit // ISO 27001 Certified // Direct Support: ",
+            label: "garv@usermimic.tech",
+            href: "mailto:garv@usermimic.tech",
+          },
+        ]}
         columns={[
           {
             title: 'Platform',
             links: [
               { label: 'Autonomous Personas', href: '#personas' },
-              { label: 'Vision Engine', href: '#engine' },
-              { label: 'Live Telemetry', href: '#simulator' },
-              { label: 'Pricing & Plans', href: '#pricing' },
+              { label: 'Vision Engine Architecture', href: '#engine' },
+              { label: 'Live Telemetry Sandbox', href: '#simulator' },
+              { label: 'Pricing & ROI Calculator', href: '#pricing' },
+              { label: 'Enterprise VPC Runners', href: '#console' },
             ],
           },
           {
-            title: 'Developers & CI/CD',
+            title: 'Security & Compliance',
             links: [
-              { label: 'GitHub Actions Integration', href: '#engine' },
-              { label: 'Zero Selector Specs', href: '#engine' },
-              { label: 'Interactive Sandbox', href: '#simulator' },
-              { label: 'SOC2 & Security', href: '#pricing' },
+              { label: 'SOC 2 Type II Audit Report', href: '#legal-security' },
+              { label: 'ISO/IEC 27001 Controls', href: '#legal-security' },
+              { label: 'Data Processing Addendum (DPA)', href: '#legal-privacy' },
+              { label: 'GDPR & CCPA Safeguards', href: '#legal-privacy' },
+              { label: 'Security Architecture Whitepaper', href: '#legal-security' },
+            ],
+          },
+          {
+            title: 'Legal & Governance',
+            links: [
+              { label: 'Master Terms of Service', href: '#legal-terms' },
+              { label: 'Enterprise Privacy Policy', href: '#legal-privacy' },
+              { label: 'Zero-Retention AI Guarantee', href: '#legal-security' },
+              { label: 'Acceptable Use Policy', href: '#legal-terms' },
+              { label: 'Trademark & IP Guidelines', href: '#legal-terms' },
+            ],
+          },
+          {
+            title: 'Company & Contact',
+            links: [
+              { label: 'Founder & Engineering Team', href: 'https://www.linkedin.com/company/usermimic' },
+              { label: 'Crunchbase Profile', href: 'https://www.crunchbase.com/organization/usermimic' },
+              { label: 'LinkedIn Company Page', href: 'https://www.linkedin.com/company/usermimic' },
+              { label: 'Direct: garv@usermimic.tech', href: 'mailto:garv@usermimic.tech' },
+              { label: 'Security DPO Office', href: 'mailto:garv@usermimic.tech?subject=DPO%20Inquiry' },
             ],
           },
         ]}
       />
 
-      {/* Interactive Launch Console Demo Modal */}
-      <DemoModal
-        isOpen={isDemoModalOpen}
-        onClose={() => setIsDemoModalOpen(false)}
-        onLaunchSimulation={(url, persona) => {
-          handleSelectTab('simulator')
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        }}
+      {/* LOCKED ENTERPRISE CONSOLE & CLOSED BETA GATE MODAL */}
+      <ConsoleLockModal
+        isOpen={isConsoleLockOpen}
+        onClose={() => setIsConsoleLockOpen(false)}
+      />
+
+      {/* REALISTIC PLAN CHECKOUT & PROVISIONING MODAL */}
+      <PlanCheckoutModal
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
+        selectedPlan={selectedPlan}
+      />
+
+      {/* FULL LEGAL DOCUMENT MODAL (Terms, Privacy, Security Whitepaper) */}
+      <LegalModal
+        isOpen={Boolean(legalDoc)}
+        onClose={() => setLegalDoc(null)}
+        docType={legalDoc || 'terms'}
       />
     </div>
   )

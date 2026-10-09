@@ -38,12 +38,16 @@ export const Hero: React.FC<HeroProps> = ({
             initial={{ y: -15, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-3.5 py-1 text-[11px] sm:text-xs text-[#E1E0CC]/90 shadow-xl"
+            className="inline-flex items-center gap-2 bg-black/75 backdrop-blur-md border border-white/10 rounded-full px-3.5 py-1 text-[11px] sm:text-xs text-[#E1E0CC]/90 shadow-xl"
           >
-            <Sparkles className="w-3.5 h-3.5 text-primary animate-pulse" />
-            <span className="font-medium">Autonomous Vision Simulation</span>
+            <Sparkles className="w-3.5 h-3.5 text-[#d89c56] animate-pulse" />
+            <span className="font-semibold text-primary">Private Enterprise Beta v2.4</span>
             <span className="text-gray-500 font-mono">//</span>
-            <span className="text-gray-400">2.4M journeys verified</span>
+            <span className="text-gray-400">SOC 2 In-Audit</span>
+            <span className="text-gray-500 font-mono">//</span>
+            <a href="mailto:garv@usermimic.tech" className="text-[#d89c56] hover:underline font-mono">
+              garv@usermimic.tech
+            </a>
           </motion.div>
         </div>
 
@@ -86,7 +90,7 @@ export const Hero: React.FC<HeroProps> = ({
                   onClick={onStartSimulation}
                   className="group inline-flex items-center gap-2 hover:gap-3 bg-primary text-black font-semibold text-sm sm:text-base pl-5 sm:pl-6 pr-1.5 sm:pr-2 py-1.5 sm:py-2 rounded-full transition-all duration-300 shadow-xl hover:shadow-primary/20"
                 >
-                  <span>Deploy Simulation</span>
+                  <span>Access Enterprise Console</span>
                   <span className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#E1E0CC]" />
                   </span>
@@ -97,7 +101,7 @@ export const Hero: React.FC<HeroProps> = ({
                   className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#E1E0CC] hover:text-primary px-4 py-2 rounded-full border border-white/10 hover:border-white/25 bg-black/40 backdrop-blur-sm transition-all"
                 >
                   <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>Explore Personas</span>
+                  <span>Architecture &amp; Personas</span>
                 </button>
               </motion.div>
             </div>

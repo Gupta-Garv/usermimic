@@ -216,6 +216,25 @@ export const PricingPage: React.FC<{ onSelectPlan?: (plan: string) => void }> = 
         </div>
       </div>
 
+      {/* Enterprise Procurement & Security Note */}
+      <div className="bg-[#08080a] border border-white/5 rounded-2xl p-4 sm:p-5 mb-20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <div className="flex items-center gap-3">
+          <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+          <span className="text-gray-300">
+            Need custom vendor security review, BAA execution, or invoice payment (NET-30)?
+          </span>
+        </div>
+        <div className="flex items-center gap-3 font-mono">
+          <span className="text-gray-500 hidden md:inline">//</span>
+          <a
+            href="mailto:garv@usermimic.tech?subject=Enterprise%20Procurement%20Inquiry"
+            className="text-primary hover:text-white font-semibold flex items-center gap-1.5 transition-colors"
+          >
+            Direct: garv@usermimic.tech
+          </a>
+        </div>
+      </div>
+
       {/* Interactive ROI Calculator */}
       <div className="bg-[#0e0e12] border border-white/10 rounded-3xl p-8 sm:p-12 mb-20 shadow-2xl">
         <div className="max-w-3xl mx-auto text-center mb-8">
