@@ -103,7 +103,7 @@ const DEFAULT_COLUMNS: FooterColumn[] = [
     links: [
       { label: "Autonomous Personas", href: "#personas" },
       { label: "Vision Engine", href: "#engine" },
-      { label: "Live Telemetry", href: "#simulator" },
+      { label: "Enterprise Evaluation", href: "#pricing" },
       { label: "Pricing & Plans", href: "#pricing" },
     ],
   },

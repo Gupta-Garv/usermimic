@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Logo } from './Logo'
-import { ArrowRight, Menu, X, Terminal, Lock, Mail } from 'lucide-react'
+import { ArrowRight, Menu, X, Lock } from 'lucide-react'
 
-export type TabId = 'home' | 'personas' | 'engine' | 'simulator' | 'pricing' | 'company'
+export type TabId = 'home' | 'personas' | 'engine' | 'pricing' | 'company'
 
 interface NavbarProps {
   activeTab: TabId
@@ -15,7 +15,6 @@ const TABS: { id: TabId; label: string }[] = [
   { id: 'home', label: 'Overview' },
   { id: 'personas', label: 'Personas' },
   { id: 'engine', label: 'Vision Engine' },
-  { id: 'simulator', label: 'Simulator' },
   { id: 'pricing', label: 'Pricing' },
   { id: 'company', label: 'Company' },
 ]
@@ -36,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onSelectTab('home')
             window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
-          className="pointer-events-auto bg-black/80 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 flex items-center shadow-2xl transition-all hover:border-primary/40 hover:scale-[1.02]"
+          className="pointer-events-auto bg-black/80 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 flex items-center shadow-2xl transition-all hover:border-primary/40 hover:scale-[1.02] cursor-pointer"
         >
           <Logo size={28} />
         </div>
@@ -78,14 +77,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Right Action CTA (Desktop) */}
         <div className="pointer-events-auto hidden md:flex items-center gap-3">
-          <button
-            onClick={() => onSelectTab('simulator')}
-            className="flex items-center gap-2 bg-[#121214] hover:bg-[#1a1a1f] border border-white/10 text-[#E1E0CC] text-xs font-medium px-3.5 py-2 rounded-full transition-all"
-          >
-            <Terminal className="w-3.5 h-3.5 text-primary" />
-            <span>Live Terminal</span>
-          </button>
-
           <button
             onClick={onOpenDemo}
             className="group flex items-center gap-2 bg-primary hover:bg-[#eae8d8] text-black text-xs font-semibold pl-4 pr-1.5 py-1.5 rounded-full transition-all shadow-lg hover:shadow-primary/20"
@@ -141,17 +132,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
 
             <div className="border-t border-white/10 pt-4 flex flex-col gap-2.5">
-              <button
-                onClick={() => {
-                  onSelectTab('simulator')
-                  setMobileOpen(false)
-                }}
-                className="w-full flex items-center justify-center gap-2 bg-[#17171a] border border-white/10 text-[#E1E0CC] text-xs font-medium py-3 rounded-xl"
-              >
-                <Terminal className="w-4 h-4 text-primary" />
-                <span>Open Live Terminal</span>
-              </button>
-
               <button
                 onClick={() => {
                   setMobileOpen(false)

@@ -4,11 +4,10 @@ import { Hero } from './components/Hero'
 import { Thesis } from './components/Thesis'
 import { PersonasPage } from './components/PersonasPage'
 import { VisionEnginePage } from './components/VisionEnginePage'
-import { SimulatorPage } from './components/SimulatorPage'
 import { PricingPage } from './components/PricingPage'
 import { About } from './components/About'
+import { CheckoutPage } from './components/CheckoutPage'
 import { ConsoleLockModal } from './components/ConsoleLockModal'
-import { PlanCheckoutModal } from './components/PlanCheckoutModal'
 import { LegalModal, LegalDocType } from './components/LegalModal'
 import { ComplianceTrustBar } from './components/ComplianceTrustBar'
 import { AsciiFluid } from './components/ui/ascii-fluid'
@@ -21,12 +20,16 @@ export default function App() {
   const [selectedPlan, setSelectedPlan] = useState('Growth')
   const [legalDoc, setLegalDoc] = useState<LegalDocType | null>(null)
 
-  // Sync tab with URL hash
+  // Sync tab and modal with URL hash
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '') as TabId
-      if (['home', 'personas', 'engine', 'simulator', 'pricing', 'company'].includes(hash)) {
-        setActiveTab(hash)
+      const hash = window.location.hash.replace('#', '')
+      if (hash === 'checkout') {
+        setIsCheckoutOpen(true)
+        return
+      }
+      if (['home', 'personas', 'engine', 'pricing', 'company'].includes(hash)) {
+        setActiveTab(hash as TabId)
       }
     }
 
@@ -36,8 +39,21 @@ export default function App() {
   }, [])
 
   const handleSelectTab = (tab: TabId) => {
+    setIsCheckoutOpen(false)
     setActiveTab(tab)
     window.location.hash = tab === 'home' ? '' : tab
+  }
+
+  const handleOpenCheckout = (plan: string = 'Growth') => {
+    setSelectedPlan(plan)
+    setIsCheckoutOpen(true)
+    window.location.hash = 'checkout'
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const handleCloseCheckout = () => {
+    setIsCheckoutOpen(false)
+    window.location.hash = activeTab === 'home' ? '' : activeTab
   }
 
   const handleFooterLinkClick = (label: string, href?: string) => {
@@ -47,17 +63,28 @@ export default function App() {
       return
     }
 
+    if (href === '#checkout') {
+      handleOpenCheckout(selectedPlan)
+      return
+    }
+
     if (href?.startsWith('#')) {
-      const target = href.replace('#', '') as TabId
-      if (['home', 'personas', 'engine', 'simulator', 'pricing', 'company'].includes(target)) {
-        handleSelectTab(target)
+      const target = href.replace('#', '')
+      if (target === 'checkout') {
+        handleOpenCheckout(selectedPlan)
+        return
+      }
+      if (['home', 'personas', 'engine', 'pricing', 'company'].includes(target)) {
+        handleSelectTab(target as TabId)
         window.scrollTo({ top: 0, behavior: 'smooth' })
         return
       }
     }
 
     const lower = label.toLowerCase()
-    if (lower.includes('terms')) {
+    if (lower.includes('checkout') || lower.includes('evaluation')) {
+      handleOpenCheckout('Growth')
+    } else if (lower.includes('terms')) {
       setLegalDoc('terms')
     } else if (lower.includes('privacy') || lower.includes('gdpr') || lower.includes('dpa')) {
       setLegalDoc('privacy')
@@ -66,6 +93,20 @@ export default function App() {
     } else if (lower.includes('console') || lower.includes('beta') || lower.includes('demo') || lower.includes('vpc')) {
       setIsConsoleLockOpen(true)
     }
+  }
+
+  // If Full-Page Checkout is active, render dedicated Checkout Page
+  if (isCheckoutOpen) {
+    return (
+      <CheckoutPage
+        initialPlan={selectedPlan}
+        onBack={handleCloseCheckout}
+        onOpenConsole={() => {
+          handleCloseCheckout()
+          setIsConsoleLockOpen(true)
+        }}
+      />
+    )
   }
 
   return (
@@ -111,34 +152,21 @@ export default function App() {
             {activeTab === 'home' && (
               <>
                 <Thesis />
-                <PersonasPage onLaunchSimulator={() => handleSelectTab('simulator')} />
+                <PersonasPage onOpenConsole={() => setIsConsoleLockOpen(true)} />
                 <VisionEnginePage />
-                <SimulatorPage />
-                <PricingPage
-                  onSelectPlan={(plan) => {
-                    setSelectedPlan(plan)
-                    setIsCheckoutOpen(true)
-                  }}
-                />
+                <PricingPage onSelectPlan={handleOpenCheckout} />
                 <About />
               </>
             )}
 
             {activeTab === 'personas' && (
-              <PersonasPage onLaunchSimulator={() => handleSelectTab('simulator')} />
+              <PersonasPage onOpenConsole={() => setIsConsoleLockOpen(true)} />
             )}
 
             {activeTab === 'engine' && <VisionEnginePage />}
 
-            {activeTab === 'simulator' && <SimulatorPage />}
-
             {activeTab === 'pricing' && (
-              <PricingPage
-                onSelectPlan={(plan) => {
-                  setSelectedPlan(plan)
-                  setIsCheckoutOpen(true)
-                }}
-              />
+              <PricingPage onSelectPlan={handleOpenCheckout} />
             )}
 
             {activeTab === 'company' && <About />}
@@ -184,7 +212,7 @@ export default function App() {
             links: [
               { label: 'Autonomous Personas', href: '#personas' },
               { label: 'Vision Engine Architecture', href: '#engine' },
-              { label: 'Live Telemetry Sandbox', href: '#simulator' },
+              { label: 'Enterprise Cloud Checkout', href: '#checkout' },
               { label: 'Pricing & ROI Calculator', href: '#pricing' },
               { label: 'Enterprise VPC Runners', href: '#console' },
             ],
@@ -226,13 +254,6 @@ export default function App() {
       <ConsoleLockModal
         isOpen={isConsoleLockOpen}
         onClose={() => setIsConsoleLockOpen(false)}
-      />
-
-      {/* REALISTIC PLAN CHECKOUT & PROVISIONING MODAL */}
-      <PlanCheckoutModal
-        isOpen={isCheckoutOpen}
-        onClose={() => setIsCheckoutOpen(false)}
-        selectedPlan={selectedPlan}
       />
 
       {/* FULL LEGAL DOCUMENT MODAL (Terms, Privacy, Security Whitepaper) */}

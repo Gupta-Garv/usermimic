@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Smartphone, Bug, Briefcase, Accessibility, Play, ArrowRight, Gauge, Activity, ShieldAlert } from 'lucide-react'
+import { Smartphone, Bug, Briefcase, Accessibility, Play, ArrowRight, Gauge, Activity, ShieldAlert, Lock } from 'lucide-react'
 import { WordsPullUpMultiStyle } from './WordsPullUpMultiStyle'
 
 interface Persona {
@@ -87,8 +87,8 @@ const PERSONAS: Persona[] = [
   },
 ]
 
-export const PersonasPage: React.FC<{ onLaunchSimulator?: () => void }> = ({
-  onLaunchSimulator,
+export const PersonasPage: React.FC<{ onOpenConsole?: () => void }> = ({
+  onOpenConsole,
 }) => {
   const [selectedPersona, setSelectedPersona] = useState<Persona>(PERSONAS[0])
   const [chaosLevel, setChaosLevel] = useState(65)
@@ -228,13 +228,13 @@ export const PersonasPage: React.FC<{ onLaunchSimulator?: () => void }> = ({
               </div>
             </div>
 
-            {onLaunchSimulator && (
+            {onOpenConsole && (
               <button
-                onClick={onLaunchSimulator}
+                onClick={onOpenConsole}
                 className="inline-flex items-center gap-2 bg-primary text-black font-semibold text-xs px-5 py-2.5 rounded-full hover:bg-white transition-all shadow-lg"
               >
-                <Play className="w-3.5 h-3.5 fill-current" />
-                <span>Launch Full Simulator Console</span>
+                <Lock className="w-3.5 h-3.5" />
+                <span>Deploy Persona in Enterprise VPC</span>
               </button>
             )}
           </div>
