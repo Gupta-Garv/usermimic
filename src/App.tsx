@@ -6,6 +6,7 @@ import { PersonasPage } from './components/PersonasPage'
 import { VisionEnginePage } from './components/VisionEnginePage'
 import { SimulatorPage } from './components/SimulatorPage'
 import { PricingPage } from './components/PricingPage'
+import { About } from './components/About'
 import { ConsoleLockModal } from './components/ConsoleLockModal'
 import { PlanCheckoutModal } from './components/PlanCheckoutModal'
 import { LegalModal, LegalDocType } from './components/LegalModal'
@@ -24,7 +25,7 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '') as TabId
-      if (['home', 'personas', 'engine', 'simulator', 'pricing'].includes(hash)) {
+      if (['home', 'personas', 'engine', 'simulator', 'pricing', 'company'].includes(hash)) {
         setActiveTab(hash)
       }
     }
@@ -48,7 +49,7 @@ export default function App() {
 
     if (href?.startsWith('#')) {
       const target = href.replace('#', '') as TabId
-      if (['home', 'personas', 'engine', 'simulator', 'pricing'].includes(target)) {
+      if (['home', 'personas', 'engine', 'simulator', 'pricing', 'company'].includes(target)) {
         handleSelectTab(target)
         window.scrollTo({ top: 0, behavior: 'smooth' })
         return
@@ -69,7 +70,7 @@ export default function App() {
 
   return (
     <div className="bg-black text-[#E1E0CC] min-h-screen selection:bg-primary selection:text-black flex flex-col justify-between">
-      {/* Floating Top Navbar with Lock Icon & Direct Email */}
+      {/* Floating Top Navbar */}
       <Navbar
         activeTab={activeTab}
         onSelectTab={handleSelectTab}
@@ -119,6 +120,7 @@ export default function App() {
                     setIsCheckoutOpen(true)
                   }}
                 />
+                <About />
               </>
             )}
 
@@ -138,6 +140,8 @@ export default function App() {
                 }}
               />
             )}
+
+            {activeTab === 'company' && <About />}
           </div>
         </div>
 
@@ -169,9 +173,9 @@ export default function App() {
             label: "",
           },
           {
-            lead: "SOC 2 Type II In-Audit // ISO 27001 Certified // Direct Support: ",
-            label: "garv@usermimic.tech",
-            href: "mailto:garv@usermimic.tech",
+            lead: "SOC 2 Type II In-Audit // ISO 27001 Certified // ",
+            label: "Contact & Security Office",
+            href: "#company",
           },
         ]}
         columns={[
@@ -208,11 +212,11 @@ export default function App() {
           {
             title: 'Company & Contact',
             links: [
-              { label: 'Founder & Engineering Team', href: 'https://www.linkedin.com/company/usermimic' },
+              { label: 'About & Founding Mission', href: '#company' },
+              { label: 'Direct Line & Inquiries', href: '#company' },
               { label: 'Crunchbase Profile', href: 'https://www.crunchbase.com/organization/usermimic' },
               { label: 'LinkedIn Company Page', href: 'https://www.linkedin.com/company/usermimic' },
-              { label: 'Direct: garv@usermimic.tech', href: 'mailto:garv@usermimic.tech' },
-              { label: 'Security DPO Office', href: 'mailto:garv@usermimic.tech?subject=DPO%20Inquiry' },
+              { label: 'Security & Legal DPO', href: '#company' },
             ],
           },
         ]}

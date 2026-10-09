@@ -38,16 +38,14 @@ export const Hero: React.FC<HeroProps> = ({
             initial={{ y: -15, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-black/75 backdrop-blur-md border border-white/10 rounded-full px-3.5 py-1 text-[11px] sm:text-xs text-[#E1E0CC]/90 shadow-xl"
+            className="inline-flex items-center gap-2 bg-black/75 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 text-[11px] sm:text-xs text-[#E1E0CC]/90 shadow-xl"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#d89c56] animate-pulse" />
             <span className="font-semibold text-primary">Private Enterprise Beta v2.4</span>
             <span className="text-gray-500 font-mono">//</span>
             <span className="text-gray-400">SOC 2 In-Audit</span>
             <span className="text-gray-500 font-mono">//</span>
-            <a href="mailto:garv@usermimic.tech" className="text-[#d89c56] hover:underline font-mono">
-              garv@usermimic.tech
-            </a>
+            <span className="text-gray-400">2.4M Journeys Verified</span>
           </motion.div>
         </div>
 

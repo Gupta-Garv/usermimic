@@ -154,10 +154,10 @@ export const ComplianceTrustBar: React.FC<{
             </button>
             <span>//</span>
             <a
-              href="mailto:garv@usermimic.tech?subject=Security%20Questionnaire%20Request"
+              href="#company"
               className="text-[#d89c56] hover:underline"
             >
-              Contact DPO: garv@usermimic.tech
+              Contact Security &amp; Legal
             </a>
           </div>
         </div>

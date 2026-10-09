@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Logo } from './Logo'
 import { ArrowRight, Menu, X, Terminal, Lock, Mail } from 'lucide-react'
 
-export type TabId = 'home' | 'personas' | 'engine' | 'simulator' | 'pricing'
+export type TabId = 'home' | 'personas' | 'engine' | 'simulator' | 'pricing' | 'company'
 
 interface NavbarProps {
   activeTab: TabId
@@ -17,6 +17,7 @@ const TABS: { id: TabId; label: string }[] = [
   { id: 'engine', label: 'Vision Engine' },
   { id: 'simulator', label: 'Simulator' },
   { id: 'pricing', label: 'Pricing' },
+  { id: 'company', label: 'Company' },
 ]
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -77,14 +78,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Right Action CTA (Desktop) */}
         <div className="pointer-events-auto hidden md:flex items-center gap-3">
-          <a
-            href="mailto:garv@usermimic.tech"
-            className="hidden lg:flex items-center gap-1.5 bg-black/60 hover:bg-black/90 border border-white/10 text-gray-300 hover:text-primary text-xs font-mono px-3.5 py-2 rounded-full transition-all"
-          >
-            <Mail className="w-3.5 h-3.5 text-[#d89c56]" />
-            <span>garv@usermimic.tech</span>
-          </a>
-
           <button
             onClick={() => onSelectTab('simulator')}
             className="flex items-center gap-2 bg-[#121214] hover:bg-[#1a1a1f] border border-white/10 text-[#E1E0CC] text-xs font-medium px-3.5 py-2 rounded-full transition-all"
@@ -169,14 +162,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <Lock className="w-4 h-4" />
                 <span>Enterprise Console Access</span>
               </button>
-
-              <a
-                href="mailto:garv@usermimic.tech"
-                className="w-full flex items-center justify-center gap-2 text-gray-400 hover:text-primary text-xs font-mono py-2"
-              >
-                <Mail className="w-3.5 h-3.5 text-[#d89c56]" />
-                <span>garv@usermimic.tech</span>
-              </a>
             </div>
           </motion.div>
         )}

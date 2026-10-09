@@ -224,15 +224,12 @@ export const PricingPage: React.FC<{ onSelectPlan?: (plan: string) => void }> = 
             Need custom vendor security review, BAA execution, or invoice payment (NET-30)?
           </span>
         </div>
-        <div className="flex items-center gap-3 font-mono">
-          <span className="text-gray-500 hidden md:inline">//</span>
-          <a
-            href="mailto:garv@usermimic.tech?subject=Enterprise%20Procurement%20Inquiry"
-            className="text-primary hover:text-white font-semibold flex items-center gap-1.5 transition-colors"
-          >
-            Direct: garv@usermimic.tech
-          </a>
-        </div>
+        <a
+          href="#company"
+          className="text-primary hover:text-white font-semibold font-mono flex items-center gap-1.5 transition-colors shrink-0"
+        >
+          <span>Contact Enterprise Sales &amp; Procurement &rarr;</span>
+        </a>
       </div>
 
       {/* Interactive ROI Calculator */}
