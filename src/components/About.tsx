@@ -99,8 +99,8 @@ export const About: React.FC = () => {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold text-[#E1E0CC] block">UserMimic, Inc.</span>
-                  <span className="text-gray-400">San Francisco, CA &amp; Distributed Infrastructure</span>
+                  <span className="font-semibold text-[#E1E0CC] block">UserMimic</span>
+                  <span className="text-gray-400">India &amp; Distributed Global Infrastructure</span>
                 </div>
               </div>
 

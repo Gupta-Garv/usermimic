@@ -221,8 +221,8 @@ Payment Verification: Tokenized Hold on ${paymentMethod === 'card' ? `${getCardB
 - Enterprise Privacy Policy: https://usermimic.tech/#legal-privacy
 
 Questions or Accounts Payable: garv@usermimic.tech
-UserMimic Technologies, Inc.
-548 Market St, Suite 39201, San Francisco, CA 94104
+UserMimic Technologies
+India & Global Cloud Infrastructure
 ========================================================================`
 
     const blob = new Blob([receiptText], { type: 'text/plain;charset=utf-8' })
