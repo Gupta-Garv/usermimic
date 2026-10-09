@@ -3,59 +3,122 @@ import { motion } from 'framer-motion'
 
 export const Logo: React.FC<{ className?: string; size?: number }> = ({
   className = '',
-  size = 36,
+  size = 34,
 }) => {
   return (
     <div className={`inline-flex items-center gap-2.5 group cursor-pointer ${className}`}>
-      {/* Animated Reticle Aperture Emblem */}
+      {/* Recreated Monogram Reticle Mark without background */}
       <div
-        className="relative flex items-center justify-center rounded-xl bg-[#0a0a0d] border border-white/10 shadow-lg overflow-hidden group-hover:border-primary/40 transition-colors"
+        className="relative flex items-center justify-center shrink-0"
         style={{ width: size, height: size }}
       >
-        {/* Ambient Glow */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#3d6bff]/20 via-transparent to-primary/20 opacity-60 group-hover:opacity-100 transition-opacity" />
-
         <svg
-          viewBox="0 0 36 36"
+          viewBox="0 0 100 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full p-1.5"
+          className="w-full h-full"
         >
-          {/* Rotating Outer Reticle */}
-          <motion.circle
-            cx="18"
-            cy="18"
-            r="14"
-            stroke="rgba(222, 219, 200, 0.25)"
-            strokeWidth="1.2"
-            strokeDasharray="4 6"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-            style={{ originX: '18px', originY: '18px' }}
-          />
-
-          {/* Precision Corner Optics */}
+          {/* Viewfinder Corner Brackets */}
           <path
-            d="M8 12V8H12M24 8H28V12M28 24V28H24M12 28H8V24"
-            stroke="#DEDBC8"
-            strokeWidth="1.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            opacity="0.8"
+            d="M 16 34 V 18 H 34"
+            stroke="#E1E0CC"
+            strokeWidth="3.2"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+          <path
+            d="M 66 18 H 84 V 34"
+            stroke="#E1E0CC"
+            strokeWidth="3.2"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+          <path
+            d="M 84 66 V 82 H 66"
+            stroke="#E1E0CC"
+            strokeWidth="3.2"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+          <path
+            d="M 34 82 H 16 V 66"
+            stroke="#E1E0CC"
+            strokeWidth="3.2"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
           />
 
-          {/* Central Vision Sensor Pupil */}
+          {/* Reticle Ticks Left */}
+          <line x1="16" y1="42" x2="18" y2="42" stroke="#E1E0CC" strokeWidth="3.2" strokeLinecap="square" />
+          <line x1="10" y1="50" x2="18" y2="50" stroke="#E1E0CC" strokeWidth="3.2" strokeLinecap="square" />
+          <line x1="16" y1="58" x2="18" y2="58" stroke="#E1E0CC" strokeWidth="3.2" strokeLinecap="square" />
+
+          {/* Reticle Ticks Right */}
+          <line x1="82" y1="42" x2="84" y2="42" stroke="#E1E0CC" strokeWidth="3.2" strokeLinecap="square" />
+          <line x1="82" y1="50" x2="90" y2="50" stroke="#E1E0CC" strokeWidth="3.2" strokeLinecap="square" />
+          <line x1="82" y1="58" x2="84" y2="58" stroke="#E1E0CC" strokeWidth="3.2" strokeLinecap="square" />
+
+          {/* Left Column Stem: (28, 28) down to (28, 70) -> (38, 70) -> up to (38, 28) */}
+          <path
+            d="M 28 28 V 70 H 38 V 28"
+            stroke="#E1E0CC"
+            strokeWidth="3.2"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+
+          {/* Outer Diagonal V: from (28, 28) down to (50, 60) -> up to (63.5, 42) */}
+          <path
+            d="M 28 28 L 50 60 L 63.5 42"
+            stroke="#E1E0CC"
+            strokeWidth="3.2"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+
+          {/* Inner Chevron V: from (38, 28) down to (50, 48) -> up to (63.5, 28) */}
+          <path
+            d="M 38 28 L 50 48 L 63.5 28"
+            stroke="#E1E0CC"
+            strokeWidth="3.2"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+
+          {/* Top-Right Vertical to dot */}
+          <path
+            d="M 63.5 28 V 37"
+            stroke="#E1E0CC"
+            strokeWidth="3.2"
+            strokeLinecap="square"
+          />
+
+          {/* Diagonal from right peak to dot */}
+          <path
+            d="M 72.5 28 L 64.5 41"
+            stroke="#E1E0CC"
+            strokeWidth="3.2"
+            strokeLinecap="square"
+          />
+
+          {/* Right Column Stem: (72.5, 28) down to (72.5, 70) -> (63.5, 70) -> up to (63.5, 47) */}
+          <path
+            d="M 72.5 28 V 70 H 63.5 V 47"
+            stroke="#E1E0CC"
+            strokeWidth="3.2"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+          />
+
+          {/* Amber Focal Sensor Pupil Dot */}
           <motion.circle
-            cx="18"
-            cy="18"
-            r="4.5"
-            fill="#DEDBC8"
-            animate={{ scale: [1, 1.25, 1], opacity: [0.85, 1, 0.85] }}
-            transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+            cx="63.5"
+            cy="42.5"
+            r="4.2"
+            fill="#D89C56"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.9, 1, 0.9] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
           />
-
-          {/* Inner Laser Pupil Dot */}
-          <circle cx="18" cy="18" r="1.8" fill="#000" />
         </svg>
       </div>
 

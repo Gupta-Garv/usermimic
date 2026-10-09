@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Viewfinder Corner Brackets -->
+  <path d="M 16 34 V 18 H 34" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M 66 18 H 84 V 34" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M 84 66 V 82 H 66" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M 34 82 H 16 V 66" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Reticle Ticks Left -->
+  <line x1="16" y1="42" x2="18" y2="42" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square"/>
+  <line x1="11" y1="50" x2="18" y2="50" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square"/>
+  <line x1="16" y1="58" x2="18" y2="58" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square"/>
+
+  <!-- Reticle Ticks Right -->
+  <line x1="82" y1="42" x2="84" y2="42" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square"/>
+  <line x1="82" y1="50" x2="89" y2="50" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square"/>
+  <line x1="82" y1="58" x2="84" y2="58" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square"/>
+
+  <!-- Left Column: (28, 28) down to (28, 70) -> (38, 70) -> (38, 28) -->
+  <path d="M 28 28 V 70 H 38 V 28" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Outer Diagonal V from (28, 28) -> (50, 60) -> (62.5, 42) -->
+  <path d="M 28 28 L 50 60 L 62.5 42" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Inner Chevron V from (38, 28) -> (50, 48) -> (63.5, 28) -->
+  <path d="M 38 28 L 50 48 L 63.5 28" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Top Right Vertical from (63.5, 28) to (63.5, 38) -->
+  <path d="M 63.5 28 V 38" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square"/>
+
+  <!-- Diagonal from (72.5, 28) down-left to (64.5, 41) -->
+  <path d="M 72.5 28 L 64.5 41" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square"/>
+
+  <!-- Right Column: (72.5, 28) down to (72.5, 70) -> (63.5, 70) -> up to (63.5, 47) -->
+  <path d="M 72.5 28 V 70 H 63.5 V 47" stroke="#E1E0CC" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Amber Focal Sensor Core Dot (Convergence Pupil) -->
+  <circle cx="63.5" cy="42.5" r="3.4" fill="#D89C56"/>
+</svg>

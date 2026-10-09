@@ -41,9 +41,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           <Logo size={28} />
         </div>
 
-        {/* Center Hanging Pill Navigation (Desktop) */}
+        {/* Center Hanging Pill Navigation (Desktop) - Mathematically Centered */}
         <nav
-          className="pointer-events-auto hidden md:flex items-center bg-black/85 backdrop-blur-md border border-white/10 rounded-full p-1.5 shadow-2xl"
+          className="pointer-events-auto hidden md:flex items-center md:absolute md:left-1/2 md:-translate-x-1/2 bg-black/85 backdrop-blur-md border border-white/10 rounded-full p-1.5 shadow-2xl"
           aria-label="Main Navigation"
         >
           <div className="flex items-center gap-1">

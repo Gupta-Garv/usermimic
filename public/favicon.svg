@@ -1,29 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <!-- Matte Dark Obsidian Background -->
-  <rect width="100" height="100" rx="22" fill="#0A0A0C"/>
-  <rect width="100" height="100" rx="22" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-
   <!-- Viewfinder Corner Brackets -->
-  <path d="M 22 36 V 22 H 36" stroke="#E1E0CC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 64 22 H 78 V 36" stroke="#E1E0CC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 78 64 V 78 H 64" stroke="#E1E0CC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 36 78 H 22 V 64" stroke="#E1E0CC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 16 34 V 18 H 34" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M 66 18 H 84 V 34" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M 84 66 V 82 H 66" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M 34 82 H 16 V 66" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter"/>
 
-  <!-- Outer Shutter Lens Ring -->
-  <circle cx="50" cy="50" r="17" stroke="#E1E0CC" stroke-width="1.8" stroke-opacity="0.8"/>
+  <!-- Reticle Ticks Left -->
+  <line x1="16" y1="42" x2="18" y2="42" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square"/>
+  <line x1="10" y1="50" x2="18" y2="50" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square"/>
+  <line x1="16" y1="58" x2="18" y2="58" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square"/>
 
-  <!-- Precision Optical Aperture Blades -->
-  <g stroke="#E1E0CC" stroke-width="1.5" stroke-linecap="round" opacity="0.85">
-    <path d="M 50 33 C 57 36 63 43 62 50"/>
-    <path d="M 64.7 41.5 C 68 49 66 57 59 62"/>
-    <path d="M 64.7 58.5 C 61 66 52 68 45 65"/>
-    <path d="M 50 67 C 43 64 37 57 38 50"/>
-    <path d="M 35.3 58.5 C 32 51 34 43 41 38"/>
-    <path d="M 35.3 41.5 C 39 34 48 32 55 35"/>
-  </g>
+  <!-- Reticle Ticks Right -->
+  <line x1="82" y1="42" x2="84" y2="42" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square"/>
+  <line x1="82" y1="50" x2="90" y2="50" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square"/>
+  <line x1="82" y1="58" x2="84" y2="58" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square"/>
 
-  <!-- Glowing Amber Focal Sensor Core -->
-  <circle cx="50" cy="50" r="6" fill="#D89C56" fill-opacity="0.25"/>
-  <circle cx="50" cy="50" r="3.2" fill="#D89C56"/>
-  <circle cx="50" cy="50" r="1.1" fill="#FFF5EA"/>
+  <!-- Left Column Stem -->
+  <path d="M 28 28 V 70 H 38 V 28" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Outer Diagonal V -->
+  <path d="M 28 28 L 50 60 L 63.5 42" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Inner Chevron V -->
+  <path d="M 38 28 L 50 48 L 63.5 28" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Top-Right Vertical to dot -->
+  <path d="M 63.5 28 V 37" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square"/>
+
+  <!-- Diagonal from right peak to dot -->
+  <path d="M 72.5 28 L 64.5 41" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square"/>
+
+  <!-- Right Column Stem -->
+  <path d="M 72.5 28 V 70 H 63.5 V 47" stroke="#E1E0CC" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter"/>
+
+  <!-- Amber Focal Sensor Pupil Dot -->
+  <circle cx="63.5" cy="42.5" r="4.2" fill="#D89C56"/>
 </svg>
