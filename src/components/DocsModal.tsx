@@ -379,7 +379,7 @@ function verifyWebhook(payload, signatureHeader, secret) {
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-gray-300">API Gateway: 99.98% Uptime</span>
                 <span className="text-gray-600">//</span>
-                <span className="text-gray-400">Edge: bom1 (Bengaluru)</span>
+                <span className="text-gray-400">Edge: bom1 (Pune, India)</span>
               </div>
 
               <div className="flex items-center gap-2">

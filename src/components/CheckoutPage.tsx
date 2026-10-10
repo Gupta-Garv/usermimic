@@ -222,7 +222,7 @@ Payment Verification: Tokenized Hold on ${paymentMethod === 'card' ? `${getCardB
 
 Questions or Accounts Payable: garv@usermimic.tech
 UserMimic Technologies
-Bengaluru, Karnataka, India
+Pune, India
 ========================================================================`
 
     const blob = new Blob([receiptText], { type: 'text/plain;charset=utf-8' })
