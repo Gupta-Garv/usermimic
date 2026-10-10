@@ -55,7 +55,7 @@ export const About: React.FC = () => {
 
       {/* Grid: Left = Story & Direct Info, Right = Contact Form */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Mission, Ecosystem, Syndicate & Official Touchpoint */}
+        {/* Left Column: Mission, Ecosystem, Enterprise Pilots & Official Touchpoint */}
         <div className="lg:col-span-5 space-y-6">
           {/* Mission Card */}
           <div className="bg-[#0b0b0e] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
@@ -112,7 +112,7 @@ export const About: React.FC = () => {
             </div>
           </div>
 
-          {/* Institutional Syndicate & Design Partners Card */}
+          {/* Founder-Led & Design Partners Card */}
           <div className="bg-[#0b0b0e] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 text-[#d89c56]">
@@ -120,20 +120,20 @@ export const About: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-base sm:text-lg font-bold text-[#E1E0CC]">
-                  Institutional Governance
+                  Founder-Led &amp; Independent
                 </h3>
-                <p className="text-xs text-gray-400">Syndicate &amp; Enterprise Partners</p>
+                <p className="text-xs text-gray-400">Bootstrapped R&amp;D // Enterprise Pilots</p>
               </div>
             </div>
 
             <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-              Backed by an angel syndicate ($250k Pre-Seed SAFE) composed of frontier AI researchers and infrastructure operators. Currently working closely with 6 Enterprise Design Partners in private beta under mutual NDA across fintech and high-volume commerce.
+              UserMimic is an independent, bootstrapped deep-tech research lab focused entirely on engineering velocity and customer trust. Currently collaborating with 6 Enterprise Design Partners in private beta under mutual NDA across fintech and high-volume commerce.
             </p>
 
             <div className="pt-2 border-t border-white/5 grid grid-cols-2 gap-2 text-xs text-gray-400 font-mono">
               <div>
-                <span className="text-gray-500 block text-[10px]">BACKING</span>
-                <span className="text-[#E1E0CC]">$250k Angel Syndicate</span>
+                <span className="text-gray-500 block text-[10px]">CAPITAL STRUCTURE</span>
+                <span className="text-[#E1E0CC]">100% Founder-Owned</span>
               </div>
               <div>
                 <span className="text-gray-500 block text-[10px]">ENTERPRISE PILOTS</span>
@@ -272,7 +272,7 @@ export const About: React.FC = () => {
                 Reach the Founding Engineering Team
               </h3>
               <p className="text-xs sm:text-sm text-gray-400 mt-1 leading-relaxed">
-                Whether you are exploring an enterprise pilot, security audit, or investment partnership, messages are routed directly to leadership.
+                Whether you are exploring an enterprise pilot, security audit, or technical partnership, messages are routed directly to leadership.
               </p>
             </div>
 
@@ -362,7 +362,7 @@ export const About: React.FC = () => {
                       <option value="Enterprise Pilot">Enterprise Closed Pilot</option>
                       <option value="Security Audit">Security &amp; Compliance Review</option>
                       <option value="Design Partnership">Design Partnership</option>
-                      <option value="Investment / Advisory">Investor / Strategic Advisory</option>
+                      <option value="Strategic Partnership">Strategic Technical Partnership</option>
                       <option value="GitHub Action & CI/CD">GitHub Action &amp; CI/CD Integration</option>
                       <option value="NVIDIA Inception / Hardware">NVIDIA Inception / Hardware Collaboration</option>
                       <option value="General Inquiry">General Technical Question</option>
