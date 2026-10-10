@@ -49,7 +49,7 @@ export const About: React.FC = () => {
           ]}
         />
         <p className="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed font-normal">
-          UserMimic was founded in 2024 to eliminate selector debt in software engineering by treating digital interfaces through spatial visual perception rather than brittle DOM trees.
+          UserMimic was founded in October 2025 to eliminate selector debt in software engineering by treating digital interfaces through spatial visual perception rather than brittle DOM trees.
         </p>
       </div>
 
@@ -76,7 +76,7 @@ export const About: React.FC = () => {
             </p>
 
             <div className="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-gray-400 font-mono">
-              <span>Founded: 2024</span>
+              <span>Founded: October 2025</span>
               <span className="text-emerald-400">Status: Active Private Beta</span>
             </div>
           </div>

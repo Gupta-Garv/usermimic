@@ -234,7 +234,7 @@ export default function App() {
         ]}
         credits={[
           {
-            lead: "© 2024–2026 UserMimic Technologies. Bengaluru, Karnataka, India & Global Cloud Edge. All rights reserved. UserMimic™, the optical reticle emblem, and Vision Swarm™ are trademarks of UserMimic.",
+            lead: "© 2025–2026 UserMimic Technologies. Bengaluru, Karnataka, India & Global Cloud Edge. All rights reserved. UserMimic™, the optical reticle emblem, and Vision Swarm™ are trademarks of UserMimic.",
             label: "",
           },
           {
