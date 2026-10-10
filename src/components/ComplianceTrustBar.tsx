@@ -8,24 +8,26 @@ import {
   Zap,
   Globe2,
   Cpu,
+  ArrowRight,
+  ExternalLink,
 } from 'lucide-react'
 
 export const ComplianceTrustBar: React.FC<{
-  onOpenLegal?: (doc: 'terms' | 'privacy' | 'security') => void
+  onOpenLegal?: (doc: 'terms' | 'privacy' | 'security' | 'whitepaper') => void
 }> = ({ onOpenLegal }) => {
   return (
     <section className="relative z-10 py-16 px-4 md:px-8 border-t border-b border-white/5 bg-[#060608]/90 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto space-y-12">
+      <div className="max-w-7xl mx-auto space-y-10">
         {/* Top Badges & Awards Row */}
         <div className="text-center space-y-3">
           <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-[#d89c56] font-semibold">
-            Enterprise Security &amp; Recognition
+            Enterprise Security &amp; Institutional Backing
           </span>
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#E1E0CC]">
             Engineered for Mission-Critical Defense &amp; Enterprise Compliance
           </h3>
           <p className="text-xs sm:text-sm text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            UserMimic operates on zero-retention ephemeral sandboxes, isolating vision computation within hardened SOC 2 Type II and ISO 27001 environments.
+            UserMimic operates on zero-retention ephemeral sandboxes, isolating vision computation within hardened SOC 2 Type II and ISO 27001 environments accelerated via NVIDIA Inception.
           </p>
         </div>
 
@@ -53,7 +55,18 @@ export const ComplianceTrustBar: React.FC<{
             </div>
           </div>
 
-          {/* Badge 3: GDPR & CCPA */}
+          {/* Badge 3: NVIDIA Inception Member */}
+          <div className="bg-[#0c0c10] border border-[#76B900]/30 rounded-2xl p-4 text-center space-y-2 hover:border-[#76B900]/60 transition-colors relative overflow-hidden">
+            <div className="w-10 h-10 rounded-xl bg-[#76B900]/10 border border-[#76B900]/25 text-[#76B900] mx-auto flex items-center justify-center">
+              <Cpu className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-[#E1E0CC] block">NVIDIA Inception</span>
+              <span className="text-[10px] text-[#76B900] font-mono font-semibold">Program Member</span>
+            </div>
+          </div>
+
+          {/* Badge 4: GDPR & CCPA */}
           <div className="bg-[#0c0c10] border border-white/10 rounded-2xl p-4 text-center space-y-2 hover:border-[#d89c56]/40 transition-colors">
             <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-primary mx-auto flex items-center justify-center">
               <Globe2 className="w-5 h-5" />
@@ -64,7 +77,7 @@ export const ComplianceTrustBar: React.FC<{
             </div>
           </div>
 
-          {/* Badge 4: HIPAA BAA */}
+          {/* Badge 5: HIPAA BAA */}
           <div className="bg-[#0c0c10] border border-white/10 rounded-2xl p-4 text-center space-y-2 hover:border-[#d89c56]/40 transition-colors">
             <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 text-primary mx-auto flex items-center justify-center">
               <Lock className="w-5 h-5" />
@@ -72,17 +85,6 @@ export const ComplianceTrustBar: React.FC<{
             <div>
               <span className="text-xs font-bold text-[#E1E0CC] block">HIPAA Ready</span>
               <span className="text-[10px] text-gray-500 font-mono">BAA Available</span>
-            </div>
-          </div>
-
-          {/* Badge 5: Product Hunt #1 */}
-          <div className="bg-[#0c0c10] border border-[#d89c56]/30 rounded-2xl p-4 text-center space-y-2 relative overflow-hidden">
-            <div className="w-10 h-10 rounded-xl bg-[#d89c56]/10 text-[#d89c56] border border-[#d89c56]/20 mx-auto flex items-center justify-center">
-              <Award className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="text-xs font-bold text-[#E1E0CC] block">#1 Product of Day</span>
-              <span className="text-[10px] text-[#d89c56] font-mono">Developer Tools</span>
             </div>
           </div>
 
@@ -98,8 +100,48 @@ export const ComplianceTrustBar: React.FC<{
           </div>
         </div>
 
+        {/* NVIDIA Inception Featured Acceleration Banner */}
+        <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-[#76B900]/10 via-[#0a0a0d] to-black border border-[#76B900]/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-[#76B900]/15 border border-[#76B900]/40 flex items-center justify-center shrink-0">
+              <Cpu className="w-7 h-7 text-[#76B900]" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-sm sm:text-base font-bold text-[#E1E0CC]">
+                  NVIDIA Inception Program Member
+                </span>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-[#76B900]/20 text-[#76B900] border border-[#76B900]/30">
+                  TensorRT Accelerated
+                </span>
+              </div>
+              <p className="text-xs text-gray-400 mt-1 max-w-2xl leading-relaxed">
+                UserMimic’s optical spatial attention models are optimized with NVIDIA TensorRT-LLM and accelerated across dedicated NVIDIA H100 Tensor Core GPU clusters for sub-50ms visual decision inference.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0 flex-wrap">
+            <button
+              onClick={() => onOpenLegal?.('whitepaper')}
+              className="text-xs font-semibold px-4 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-[#E1E0CC] border border-white/10 transition-colors"
+            >
+              Architecture Whitepaper
+            </button>
+            <a
+              href="https://github.com/Gupta-Garv/usermimic-action"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs font-semibold px-4 py-2.5 rounded-full bg-[#76B900] hover:bg-[#86cf00] text-black transition-all shadow-lg flex items-center gap-1.5"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span>GitHub Action v1.2</span>
+            </a>
+          </div>
+        </div>
+
         {/* Security & Data Safeguards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
           <div className="p-6 bg-[#0a0a0d] border border-white/5 rounded-3xl space-y-2.5">
             <div className="flex items-center gap-2 text-primary font-bold text-sm">
               <CheckCircle2 className="w-4 h-4 text-emerald-400" />
@@ -147,17 +189,19 @@ export const ComplianceTrustBar: React.FC<{
             </button>
             <span>//</span>
             <button
-              onClick={() => onOpenLegal?.('privacy')}
+              onClick={() => onOpenLegal?.('whitepaper')}
               className="text-gray-300 hover:text-white"
             >
-              Privacy Policy
+              Benchmark Report
             </button>
             <span>//</span>
             <a
-              href="#company"
-              className="text-[#d89c56] hover:underline"
+              href="https://github.com/Gupta-Garv/usermimic-action"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[#76B900] hover:underline"
             >
-              Contact Security &amp; Legal
+              Open Source Action
             </a>
           </div>
         </div>

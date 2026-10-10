@@ -1,0 +1,17 @@
+# UserMimic Security Contact & Vulnerability Disclosure
+# Canonical URL: https://usermimic.tech/.well-known/security.txt
+# Standards RFC 9116
+
+Contact: mailto:security@usermimic.tech
+Contact: mailto:garv@usermimic.tech
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://usermimic.tech/.well-known/security.txt
+Policy: https://usermimic.tech/#legal-security
+Acknowledgments: https://usermimic.tech/#legal-security
+Hiring: https://usermimic.tech/#company
+
+# Security Architecture & Data Protection Summary:
+# UserMimic enforces in-memory zero data retention (ZDR) on customer UI frame buffers.
+# SOC 2 Type II In-Audit // ISO/IEC 27001 Certified Controls
+# Hardware Acceleration: NVIDIA Inception Member Program

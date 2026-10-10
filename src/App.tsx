@@ -28,6 +28,15 @@ export default function App() {
         setIsCheckoutOpen(true)
         return
       }
+      if (hash.startsWith('legal-')) {
+        const doc = hash.replace('legal-', '') as LegalDocType
+        setLegalDoc(doc)
+        return
+      }
+      if (hash === 'whitepaper' || hash === 'benchmark') {
+        setLegalDoc('whitepaper')
+        return
+      }
       if (['home', 'personas', 'engine', 'pricing', 'company'].includes(hash)) {
         setActiveTab(hash as TabId)
       }
@@ -63,6 +72,11 @@ export default function App() {
       return
     }
 
+    if (href === '#whitepaper' || href === '#benchmark') {
+      setLegalDoc('whitepaper')
+      return
+    }
+
     if (href === '#checkout') {
       handleOpenCheckout(selectedPlan)
       return
@@ -84,11 +98,13 @@ export default function App() {
     const lower = label.toLowerCase()
     if (lower.includes('checkout') || lower.includes('evaluation')) {
       handleOpenCheckout('Growth')
+    } else if (lower.includes('whitepaper') || lower.includes('benchmark')) {
+      setLegalDoc('whitepaper')
     } else if (lower.includes('terms')) {
       setLegalDoc('terms')
     } else if (lower.includes('privacy') || lower.includes('gdpr') || lower.includes('dpa')) {
       setLegalDoc('privacy')
-    } else if (lower.includes('soc') || lower.includes('security') || lower.includes('whitepaper')) {
+    } else if (lower.includes('soc') || lower.includes('security')) {
       setLegalDoc('security')
     } else if (lower.includes('console') || lower.includes('beta') || lower.includes('demo') || lower.includes('vpc')) {
       setIsConsoleLockOpen(true)
@@ -181,7 +197,7 @@ export default function App() {
       <BeamWordmarkFooter
         brand="UserMimic"
         wordmark="UserMimic"
-        company="UserMimic Technologies Inc."
+        company="UserMimic Technologies"
         onLinkClick={handleFooterLinkClick}
         background="#000000"
         ink="#E1E0CC"
@@ -191,19 +207,20 @@ export default function App() {
         wordFoot="#16120b"
         cut={0.14}
         socials={[
+          { label: "GitHub", href: "https://github.com/Gupta-Garv/usermimic-action", icon: "github" },
           { label: "Crunchbase", href: "https://www.crunchbase.com/organization/usermimic", icon: "github" },
           { label: "LinkedIn", href: "https://www.linkedin.com/company/usermimic", icon: "linkedin" },
           { label: "X (Twitter)", href: "https://x.com", icon: "x" },
         ]}
         credits={[
           {
-            lead: "© 2024–2026 UserMimic, Inc. All rights reserved. UserMimic™, the optical reticle emblem, and Vision Swarm™ are registered trademarks or trademarks of UserMimic, Inc.",
+            lead: "© 2024–2026 UserMimic Technologies. Bengaluru, Karnataka, India & Global Cloud Edge. All rights reserved. UserMimic™, the optical reticle emblem, and Vision Swarm™ are trademarks of UserMimic.",
             label: "",
           },
           {
-            lead: "SOC 2 Type II In-Audit // ISO 27001 Certified // ",
-            label: "Contact & Security Office",
-            href: "#company",
+            lead: "NVIDIA Inception Member // SOC 2 Type II In-Audit // ISO 27001 // ",
+            label: "Architecture Whitepaper & Security Office",
+            href: "#legal-whitepaper",
           },
         ]}
         columns={[
@@ -212,19 +229,19 @@ export default function App() {
             links: [
               { label: 'Autonomous Personas', href: '#personas' },
               { label: 'Vision Engine Architecture', href: '#engine' },
-              { label: 'Enterprise Cloud Checkout', href: '#checkout' },
+              { label: 'GitHub Action (Open Source)', href: 'https://github.com/Gupta-Garv/usermimic-action' },
               { label: 'Pricing & ROI Calculator', href: '#pricing' },
-              { label: 'Enterprise VPC Runners', href: '#console' },
+              { label: 'Enterprise Cloud Checkout', href: '#checkout' },
             ],
           },
           {
-            title: 'Security & Compliance',
+            title: 'Security & Research',
             links: [
+              { label: 'Architecture Whitepaper & Benchmarks', href: '#legal-whitepaper' },
               { label: 'SOC 2 Type II Audit Report', href: '#legal-security' },
               { label: 'ISO/IEC 27001 Controls', href: '#legal-security' },
+              { label: 'RFC 9116 security.txt Policy', href: '/security.txt' },
               { label: 'Data Processing Addendum (DPA)', href: '#legal-privacy' },
-              { label: 'GDPR & CCPA Safeguards', href: '#legal-privacy' },
-              { label: 'Security Architecture Whitepaper', href: '#legal-security' },
             ],
           },
           {
@@ -234,17 +251,17 @@ export default function App() {
               { label: 'Enterprise Privacy Policy', href: '#legal-privacy' },
               { label: 'Zero-Retention AI Guarantee', href: '#legal-security' },
               { label: 'Acceptable Use Policy', href: '#legal-terms' },
-              { label: 'Trademark & IP Guidelines', href: '#legal-terms' },
+              { label: 'NVIDIA Inception Compliance', href: '#legal-whitepaper' },
             ],
           },
           {
-            title: 'Company & Contact',
+            title: 'Company & Ecosystem',
             links: [
               { label: 'About & Founding Mission', href: '#company' },
-              { label: 'Direct Line & Inquiries', href: '#company' },
+              { label: 'NVIDIA Inception Program', href: '#company' },
+              { label: 'Open-Source GitHub Repo', href: 'https://github.com/Gupta-Garv/usermimic-action' },
               { label: 'Crunchbase Profile', href: 'https://www.crunchbase.com/organization/usermimic' },
               { label: 'LinkedIn Company Page', href: 'https://www.linkedin.com/company/usermimic' },
-              { label: 'Security & Legal DPO', href: '#company' },
             ],
           },
         ]}

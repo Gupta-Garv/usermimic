@@ -55,7 +55,7 @@ export const About: React.FC = () => {
 
       {/* Grid: Left = Story & Direct Info, Right = Contact Form */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Mission, Entity & Official Touchpoint */}
+        {/* Left Column: Mission, Ecosystem, Syndicate & Official Touchpoint */}
         <div className="lg:col-span-5 space-y-6">
           {/* Mission Card */}
           <div className="bg-[#0b0b0e] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
@@ -78,6 +78,104 @@ export const About: React.FC = () => {
             <div className="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-gray-400 font-mono">
               <span>Founded: 2024</span>
               <span className="text-emerald-400">Status: Active Private Beta</span>
+            </div>
+          </div>
+
+          {/* NVIDIA Inception Program Card */}
+          <div className="bg-[#0b0b0e] border border-[#76B900]/30 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#76B900]/10 rounded-full blur-2xl pointer-events-none" />
+            
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-2xl bg-[#76B900]/10 border border-[#76B900]/30 text-[#76B900]">
+                  <Cpu className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-[#E1E0CC]">
+                    NVIDIA Inception
+                  </h3>
+                  <p className="text-xs text-[#76B900] font-mono font-medium">Program Member // Deep-Tech AI</p>
+                </div>
+              </div>
+              <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#76B900]/20 text-[#76B900] border border-[#76B900]/30">
+                Member
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              UserMimic is an official member of the NVIDIA Inception program for frontier AI startups. Our spatial vision attention models are accelerated with NVIDIA TensorRT-LLM on dedicated NVIDIA H100 Tensor Core GPU instances, delivering sub-50ms frame inference.
+            </p>
+
+            <div className="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-gray-400 font-mono">
+              <span>Hardware: H100 Clusters</span>
+              <span className="text-[#76B900]">Inference: &lt;42ms</span>
+            </div>
+          </div>
+
+          {/* Institutional Syndicate & Design Partners Card */}
+          <div className="bg-[#0b0b0e] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 text-[#d89c56]">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="text-base sm:text-lg font-bold text-[#E1E0CC]">
+                  Institutional Governance
+                </h3>
+                <p className="text-xs text-gray-400">Syndicate &amp; Enterprise Partners</p>
+              </div>
+            </div>
+
+            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              Backed by an angel syndicate ($250k Pre-Seed SAFE) composed of frontier AI researchers and infrastructure operators. Currently working closely with 6 Enterprise Design Partners in private beta under mutual NDA across fintech and high-volume commerce.
+            </p>
+
+            <div className="pt-2 border-t border-white/5 grid grid-cols-2 gap-2 text-xs text-gray-400 font-mono">
+              <div>
+                <span className="text-gray-500 block text-[10px]">BACKING</span>
+                <span className="text-[#E1E0CC]">$250k Angel Syndicate</span>
+              </div>
+              <div>
+                <span className="text-gray-500 block text-[10px]">ENTERPRISE PILOTS</span>
+                <span className="text-emerald-400">6 Under Mutual NDA</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Open Source Action Card */}
+          <div className="bg-[#0b0b0e] border border-white/10 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-2xl bg-white/5 border border-white/10 text-primary">
+                  <Globe2 className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-[#E1E0CC]">
+                    Open-Source CI/CD Action
+                  </h3>
+                  <p className="text-xs text-gray-400 font-mono">usermimic-action v1.2.4</p>
+                </div>
+              </div>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                Apache 2.0
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              Inspect our production-grade runner and trigger synthetic human chaos workflows directly inside your GitHub Actions CI pipeline without talking to sales.
+            </p>
+
+            <div className="pt-2 border-t border-white/5 flex items-center justify-between">
+              <span className="text-xs text-gray-400 font-mono">Repo: Gupta-Garv/usermimic-action</span>
+              <a
+                href="https://github.com/Gupta-Garv/usermimic-action"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-[#E1E0CC] text-xs font-semibold transition-colors"
+              >
+                <span>View on GitHub</span>
+                <ExternalLink className="w-3 h-3 text-gray-400" />
+              </a>
             </div>
           </div>
 
@@ -107,7 +205,7 @@ export const About: React.FC = () => {
               <div className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold text-[#E1E0CC] block">Direct Executive Communications</span>
+                  <span className="font-semibold text-[#E1E0CC] block">Executive Communications</span>
                   <a
                     href="mailto:garv@usermimic.tech"
                     className="text-primary hover:underline font-mono"
@@ -121,7 +219,7 @@ export const About: React.FC = () => {
                 <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold text-[#E1E0CC] block">Security &amp; Data Protection Office</span>
-                  <span className="text-gray-400">SOC 2 Type II // Inquiries routed to garv@usermimic.tech</span>
+                  <span className="text-gray-400">RFC 9116 Policy // Inquiries routed to security@usermimic.tech</span>
                 </div>
               </div>
             </div>
@@ -145,6 +243,16 @@ export const About: React.FC = () => {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white border border-white/5 transition-colors"
               >
                 <span>LinkedIn Company</span>
+                <ExternalLink className="w-3 h-3 text-gray-500" />
+              </a>
+
+              <a
+                href="https://github.com/Gupta-Garv/usermimic-action"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white border border-white/5 transition-colors"
+              >
+                <span>GitHub Action</span>
                 <ExternalLink className="w-3 h-3 text-gray-500" />
               </a>
             </div>
@@ -255,6 +363,8 @@ export const About: React.FC = () => {
                       <option value="Security Audit">Security &amp; Compliance Review</option>
                       <option value="Design Partnership">Design Partnership</option>
                       <option value="Investment / Advisory">Investor / Strategic Advisory</option>
+                      <option value="GitHub Action & CI/CD">GitHub Action &amp; CI/CD Integration</option>
+                      <option value="NVIDIA Inception / Hardware">NVIDIA Inception / Hardware Collaboration</option>
                       <option value="General Inquiry">General Technical Question</option>
                     </select>
                   </div>

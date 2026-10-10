@@ -3,6 +3,20 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Logo } from './Logo'
 import { ArrowRight, Menu, X, Lock } from 'lucide-react'
 
+const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3.5' }) => (
+  <svg
+    viewBox="0 0 24 24"
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21" />
+  </svg>
+)
+
 export type TabId = 'home' | 'personas' | 'engine' | 'pricing' | 'company'
 
 interface NavbarProps {
@@ -76,7 +90,21 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Right Action CTA (Desktop) */}
-        <div className="pointer-events-auto hidden md:flex items-center gap-3">
+        <div className="pointer-events-auto hidden md:flex items-center gap-2.5">
+          <a
+            href="https://github.com/Gupta-Garv/usermimic-action"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-gray-300 hover:text-white bg-black/80 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all shadow-lg"
+            title="UserMimic GitHub Action"
+          >
+            <GithubIcon className="w-3.5 h-3.5" />
+            <span className="hidden lg:inline">GitHub</span>
+            <span className="text-[10px] font-mono text-[#76B900] bg-[#76B900]/10 px-1.5 py-0.5 rounded-full border border-[#76B900]/25">
+              v1.2
+            </span>
+          </a>
+
           <button
             onClick={onOpenDemo}
             className="group flex items-center gap-2 bg-primary hover:bg-[#eae8d8] text-black text-xs font-semibold pl-4 pr-1.5 py-1.5 rounded-full transition-all shadow-lg hover:shadow-primary/20"
@@ -142,6 +170,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <Lock className="w-4 h-4" />
                 <span>Enterprise Console Access</span>
               </button>
+
+              <a
+                href="https://github.com/Gupta-Garv/usermimic-action"
+                target="_blank"
+                rel="noreferrer"
+                className="w-full flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 text-xs text-[#E1E0CC] py-2.5 rounded-xl transition-colors"
+              >
+                <GithubIcon className="w-4 h-4" />
+                <span>GitHub Action v1.2 (Open Source)</span>
+              </a>
             </div>
           </motion.div>
         )}

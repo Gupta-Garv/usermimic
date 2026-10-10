@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Play, Sparkles } from 'lucide-react'
+import { ArrowRight, Play, Sparkles, ExternalLink } from 'lucide-react'
 import { WordsPullUp } from './WordsPullUp'
 
 interface HeroProps {
@@ -38,14 +38,14 @@ export const Hero: React.FC<HeroProps> = ({
             initial={{ y: -15, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-black/75 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 text-[11px] sm:text-xs text-[#E1E0CC]/90 shadow-xl"
+            className="inline-flex items-center gap-2 bg-black/80 backdrop-blur-md border border-white/10 rounded-full px-4 py-1.5 text-[11px] sm:text-xs text-[#E1E0CC]/90 shadow-2xl flex-wrap justify-center"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#d89c56] animate-pulse" />
             <span className="font-semibold text-primary">Private Enterprise Beta v2.4</span>
             <span className="text-gray-500 font-mono">//</span>
-            <span className="text-gray-400">SOC 2 In-Audit</span>
+            <span className="text-[#76B900] font-semibold">NVIDIA Inception Member</span>
             <span className="text-gray-500 font-mono">//</span>
-            <span className="text-gray-400">2.4M Journeys Verified</span>
+            <span className="text-gray-400">SOC 2 In-Audit</span>
           </motion.div>
         </div>
 
@@ -99,8 +99,19 @@ export const Hero: React.FC<HeroProps> = ({
                   className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#E1E0CC] hover:text-primary px-4 py-2 rounded-full border border-white/10 hover:border-white/25 bg-black/40 backdrop-blur-sm transition-all"
                 >
                   <Play className="w-3.5 h-3.5 fill-current" />
-                  <span>Architecture &amp; Personas</span>
+                  <span>Architecture</span>
                 </button>
+
+                <a
+                  href="https://github.com/Gupta-Garv/usermimic-action"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-gray-300 hover:text-white px-4 py-2 rounded-full border border-[#76B900]/30 hover:border-[#76B900]/60 bg-black/40 backdrop-blur-sm transition-all"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#76B900]" />
+                  <span>GitHub Action v1.2</span>
+                  <ExternalLink className="w-3 h-3 text-gray-500" />
+                </a>
               </motion.div>
             </div>
           </div>

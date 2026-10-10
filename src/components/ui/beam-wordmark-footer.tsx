@@ -541,7 +541,12 @@ export default function BeamWordmarkFooter({
             <ul className="bwf-links">
               {col.links.map((l, li) => (
                 <li key={l.label + li} className="bwf-fade" style={delay()}>
-                  <a className="bwf-link" href={l.href || "#"} onClick={(e) => follow(e, l.label, l.href)}>
+                  <a
+                    className="bwf-link"
+                    href={l.href || "#"}
+                    onClick={(e) => follow(e, l.label, l.href)}
+                    {...(l.href && /^https?:/.test(l.href) ? { target: "_blank", rel: "noreferrer" } : {})}
+                  >
                     <span className="bwf-link-t">{l.label}</span>
                     <Arrow />
                   </a>
