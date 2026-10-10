@@ -26,8 +26,32 @@
   </url>
   <url>
     <loc>https://usermimic.tech/#pricing</loc>
-    <lastmod>2026-10-08</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usermimic.tech/#company</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usermimic.tech/#docs</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usermimic.tech/#whitepaper</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://usermimic.tech/.well-known/security.txt</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

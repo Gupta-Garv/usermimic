@@ -9,6 +9,7 @@ import { About } from './components/About'
 import { CheckoutPage } from './components/CheckoutPage'
 import { ConsoleLockModal } from './components/ConsoleLockModal'
 import { LegalModal, LegalDocType } from './components/LegalModal'
+import { DocsModal } from './components/DocsModal'
 import { ComplianceTrustBar } from './components/ComplianceTrustBar'
 import { AsciiFluid } from './components/ui/ascii-fluid'
 import BeamWordmarkFooter from './components/ui/beam-wordmark-footer'
@@ -17,6 +18,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<TabId>('home')
   const [isConsoleLockOpen, setIsConsoleLockOpen] = useState(false)
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
+  const [isDocsOpen, setIsDocsOpen] = useState(false)
   const [selectedPlan, setSelectedPlan] = useState('Growth')
   const [legalDoc, setLegalDoc] = useState<LegalDocType | null>(null)
 
@@ -26,6 +28,10 @@ export default function App() {
       const hash = window.location.hash.replace('#', '')
       if (hash === 'checkout') {
         setIsCheckoutOpen(true)
+        return
+      }
+      if (hash === 'docs' || hash === 'api') {
+        setIsDocsOpen(true)
         return
       }
       if (hash.startsWith('legal-')) {
@@ -77,6 +83,11 @@ export default function App() {
       return
     }
 
+    if (href === '#docs' || href === '#api') {
+      setIsDocsOpen(true)
+      return
+    }
+
     if (href === '#checkout') {
       handleOpenCheckout(selectedPlan)
       return
@@ -86,6 +97,10 @@ export default function App() {
       const target = href.replace('#', '')
       if (target === 'checkout') {
         handleOpenCheckout(selectedPlan)
+        return
+      }
+      if (target === 'docs' || target === 'api') {
+        setIsDocsOpen(true)
         return
       }
       if (['home', 'personas', 'engine', 'pricing', 'company'].includes(target)) {
@@ -100,6 +115,8 @@ export default function App() {
       handleOpenCheckout('Growth')
     } else if (lower.includes('whitepaper') || lower.includes('benchmark')) {
       setLegalDoc('whitepaper')
+    } else if (lower.includes('doc') || lower.includes('sdk') || lower.includes('api')) {
+      setIsDocsOpen(true)
     } else if (lower.includes('terms')) {
       setLegalDoc('terms')
     } else if (lower.includes('privacy') || lower.includes('gdpr') || lower.includes('dpa')) {
@@ -190,7 +207,10 @@ export default function App() {
         </div>
 
         {/* ENTERPRISE COMPLIANCE, SOC 2, ISO, HIPAA & AWARDS BAR */}
-        <ComplianceTrustBar onOpenLegal={(doc) => setLegalDoc(doc)} />
+        <ComplianceTrustBar
+          onOpenLegal={(doc) => setLegalDoc(doc)}
+          onOpenDocs={() => setIsDocsOpen(true)}
+        />
       </main>
 
       {/* BEAM WORDMARK FOOTER (Warm Golden Amber & Cream Palette) */}
@@ -229,8 +249,8 @@ export default function App() {
             links: [
               { label: 'Autonomous Personas', href: '#personas' },
               { label: 'Vision Engine Architecture', href: '#engine' },
+              { label: 'SDK & API Documentation', href: '#docs' },
               { label: 'GitHub Action (Open Source)', href: 'https://github.com/Gupta-Garv/usermimic-action' },
-              { label: 'Pricing & ROI Calculator', href: '#pricing' },
               { label: 'Enterprise Cloud Checkout', href: '#checkout' },
             ],
           },
@@ -259,7 +279,7 @@ export default function App() {
             links: [
               { label: 'About & Founding Mission', href: '#company' },
               { label: 'NVIDIA Inception Program', href: '#company' },
-              { label: 'Open-Source GitHub Repo', href: 'https://github.com/Gupta-Garv/usermimic-action' },
+              { label: 'Developer Documentation', href: '#docs' },
               { label: 'Crunchbase Profile', href: 'https://www.crunchbase.com/organization/usermimic' },
               { label: 'LinkedIn Company Page', href: 'https://www.linkedin.com/company/usermimic' },
             ],
@@ -278,6 +298,12 @@ export default function App() {
         isOpen={Boolean(legalDoc)}
         onClose={() => setLegalDoc(null)}
         docType={legalDoc || 'terms'}
+      />
+
+      {/* DEVELOPER DOCUMENTATION & API REFERENCE MODAL */}
+      <DocsModal
+        isOpen={isDocsOpen}
+        onClose={() => setIsDocsOpen(false)}
       />
     </div>
   )

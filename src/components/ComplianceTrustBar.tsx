@@ -14,7 +14,8 @@ import {
 
 export const ComplianceTrustBar: React.FC<{
   onOpenLegal?: (doc: 'terms' | 'privacy' | 'security' | 'whitepaper') => void
-}> = ({ onOpenLegal }) => {
+  onOpenDocs?: () => void
+}> = ({ onOpenLegal, onOpenDocs }) => {
   return (
     <section className="relative z-10 py-16 px-4 md:px-8 border-t border-b border-white/5 bg-[#060608]/90 backdrop-blur-md">
       <div className="max-w-7xl mx-auto space-y-10">
@@ -180,12 +181,19 @@ export const ComplianceTrustBar: React.FC<{
             <span>Infra Status: All 12 Global Sandbox Clusters Operational</span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
+            <button
+              onClick={() => onOpenDocs?.()}
+              className="text-[#E1E0CC] hover:text-white underline decoration-white/20 hover:decoration-white"
+            >
+              API &amp; SDK Docs
+            </button>
+            <span>//</span>
             <button
               onClick={() => onOpenLegal?.('security')}
               className="text-primary hover:underline"
             >
-              Request SOC 2 Audit Report (NDA)
+              Request SOC 2 Report (NDA)
             </button>
             <span>//</span>
             <button
